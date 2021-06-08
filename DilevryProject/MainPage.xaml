@@ -46,13 +46,13 @@ xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Button
             <inputLayout:SfTextInputLayout Hint="Nom d'utilisateur" ContainerType="Outlined" 
                                            FocusedColor="{StaticResource Dark blue}"
                                            Grid.Row="1">
-                <Entry  Placeholder="Entrer votre nom d'utilisateur" TextColor="{StaticResource Dark blue}"/>
+                <Entry Text="{Binding UserName}" Placeholder="Entrer votre nom d'utilisateur" TextColor="{StaticResource Dark blue}"/>
 		</inputLayout:SfTextInputLayout>
             <inputLayout:SfTextInputLayout Hint="mot de passe" ContainerType="Outlined" 
                                            FocusedColor="{StaticResource Dark blue}"
                                            
                                            Grid.Row="2">
-                <Entry  Placeholder="Entrer votre mot de passe" IsPassword="True" TextColor="{StaticResource Dark blue}" />
+                    <Entry Text="{Binding UserPwd}"   Placeholder="Entrer votre mot de passe" IsPassword="True" TextColor="{StaticResource Dark blue}" />
             </inputLayout:SfTextInputLayout>
                  <button:SfButton Text="Connexion" Grid.Row="3"
                          BackgroundColor="{StaticResource Dark blue}"
@@ -62,7 +62,7 @@ xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Button
                          ImageWidth="25" />
             <button:SfButton Text="Continuer" Grid.Row="4"
                          BackgroundColor="#4267B2"
-                         
+                         Command="{Binding Login}"
                          CornerRadius="0,0,25,25" HeightRequest="50"
                          FontSize="23" HorizontalTextAlignment="Center"
                          ImageWidth="25" />

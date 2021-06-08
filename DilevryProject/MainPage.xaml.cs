@@ -13,7 +13,7 @@ namespace DilevryProject
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = ViewModel.MasterViewModel.Instance;  
+            BindingContext = ViewModel.UserViewModel.Instance;
         }
         public async void LoadData()
         {
