@@ -5,28 +5,44 @@ xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Sync
 xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="DilevryProject.MainPage" BackgroundColor="{StaticResource Yellow}">
-
+<ScrollView>
     <StackLayout VerticalOptions="FillAndExpand">
+        
         <Frame BackgroundColor="{StaticResource  Dark blue}" Padding="24" CornerRadius="0">
             <Label Text="Dilevry foods test app" HorizontalTextAlignment="Center" TextColor="{StaticResource Yellow}" FontSize="36"/>
         </Frame>
 
         <cardView:SfCardView HeightRequest="70" CornerRadius="10" Margin="10" Padding="10" 
                              BackgroundColor="#a6f1a6">
-        <Label Margin="10" FontSize="16" FontFamily="{StaticResource Tajawal-Black}"
-            Text="Si vous ete deja client de food delivry vieuillez connectez si non click sur countunier"
-               VerticalOptions="Center" HorizontalOptions="Start" TextColor="#28a745"/></cardView:SfCardView>
+            <Label Margin="10" FontSize="16" 
+               
+            
+               VerticalOptions="Center" HorizontalOptions="Start" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Info: " FontSize="18" FontFamily="{StaticResource Tajawal-Black}"/>
+                            <Span  Text="Si vous ete deja client de food delivry vieuillez connectez si non click sur countunier"
+                                FontFamily="{StaticResource Tajawal-Black}"
+                                  TextColor="#28a745" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label></cardView:SfCardView>
 
         <Grid Margin="10" VerticalOptions="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-            <forms:CachedImage Source="Right" HeightRequest="100"  WidthRequest="100"
-                           VerticalOptions="CenterAndExpand" Grid.Row="0" Margin="0,50,0,50"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <forms:CachedImage Grid.Row="0" Source="FoodDelivery" Aspect="Fill" 
+                                    HeightRequest="180"  WidthRequest="250"
+                           VerticalOptions="Center" HorizontalOptions="Center" />
+           
+           
             <inputLayout:SfTextInputLayout Hint="Nom d'utilisateur" ContainerType="Outlined" 
                                            FocusedColor="{StaticResource Dark blue}"
                                            Grid.Row="1">
@@ -60,8 +76,8 @@ xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Button
  <!--    Command="{Binding BrowseTo}" -->
 
 
+       
 
-   
     </StackLayout>
-
+ </ScrollView>
 </ContentPage>

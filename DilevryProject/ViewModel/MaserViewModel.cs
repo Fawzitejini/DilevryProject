@@ -33,7 +33,6 @@ namespace DilevryProject.ViewModel
         private MasterViewModel()
         {
             LoadData();
-           // Url = "https://aka.ms/xamarin-quickstart";
         }
 
         private string _Browseto;
@@ -49,18 +48,7 @@ namespace DilevryProject.ViewModel
                     }*/
       });
         }
-   
-        public ICommand BrowseToCatalogue
-        {
-            get => new Command(() =>
-            {
-               ((MasterDetailPage) Application.Current.MainPage).Detail.Navigation.PushAsync( new Pages.FullCatalogue());
-                /*  foreach (var t in await Services.DataServices.Instance.GetTopRatedProducts())
-                  {
-                  await Application.Current.MainPage.DisplayAlert(t.ProductName, t.Rated.ToString(), "ok");
-                  }*/
-            });
-        }
+       
         public ICommand BrowseToDetail
         {
             get => new Command(async() =>
