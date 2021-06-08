@@ -1,0 +1,11 @@
+﻿
+namespace DilevryProject.Styles
+{
+    public partial class Fonts 
+    {
+        public Fonts()
+        {
+            InitializeComponent();
+        }
+    }
+}

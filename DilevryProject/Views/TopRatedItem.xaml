@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms" xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" xmlns:views="clr-namespace:DilevryProject.Views"
+             x:Class="DilevryProject.Views.TopRatedItem">
+    <ContentView.Resources>
+        <ResourceDictionary>
+         
+            <DataTemplate x:Key="NotezTemplate">
+                <cardView:SfCardView BackgroundColor="{StaticResource Dark blue}" Margin="5" HeightRequest="350"
+                                         CornerRadius="15"
+                                         BorderWidth="1"
+                                         BorderColor="{StaticResource Yellow}"
+                                         BorderThickness="1" ShadowColor="{StaticResource Yellow}"
+                                       VerticalOptions="Center">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+
+                        </Grid.RowDefinitions>
+                        <forms:CachedImage Aspect="Fill" HeightRequest="120" 
+                                           HorizontalOptions="FillAndExpand"
+                                           Source="{Binding  ProductImage}"
+                                           Grid.Row="0" Margin="15,0,15,0"/>
+                        <Label TextColor="{StaticResource  Yellow}"
+                              MaxLines="2" LineBreakMode="TailTruncation"
+                                  Text="{Binding  ProductName}" Grid.Row="1"
+                                Margin="10" FontSize="16" VerticalOptions="End"
+                               FontFamily="{StaticResource Tajawal-Regular}"
+                       HorizontalOptions="Start"/>
+
+                        <Label TextColor="{StaticResource   Yellow}"
+                                   Grid.Row="2"
+                                  Text="{Binding  ProductUnitPrice,StringFormat='{0:C1}'}" Grid.Column="0"
+                       Margin="15,0,15,0" FontSize="14" VerticalOptions="Start"
+                               FontFamily="{StaticResource Tajawal-Bold}"
+                       HorizontalOptions="Start"/>
+                        <StackLayout Orientation="Horizontal" Grid.Row="3">
+                            <Label Margin="10">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="&#xf005; " 
+                                         FontFamily="{StaticResource FontAwsome solid}"
+                                              FontSize="16" 
+                                              TextColor="{StaticResource Yellow}"
+                                               />
+                                            <Span Text="{Binding Rating,StringFormat='{0:N1}'}  "
+                                              TextColor="{StaticResource Yellow}"
+                                              FontSize="18"
+                                              FontFamily="{StaticResource Tajawal-Medium}"/>
+
+
+
+                                            
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+
+                            </Label>
+                            <Label Margin="10">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{Binding AvisCount}" 
+                                              TextColor="{StaticResource Yellow}"
+                                              FontSize="18"
+                                              FontFamily="{StaticResource Tajawal-Medium}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="Avis" 
+                                              TextColor="{StaticResource Yellow}"
+                                              FontSize="18"
+                                              FontFamily="{StaticResource Tajawal-Medium}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                    </Grid>
+                </cardView:SfCardView>
+            </DataTemplate>
+            <DataTemplate x:Key="NotezSalesTemplate">
+                <cardView:SfCardView BackgroundColor="{StaticResource Dark blue}" Margin="5" HeightRequest="350"
+                                         CornerRadius="15"
+                                         BorderWidth="1"
+                                         BorderColor="{StaticResource Yellow}"
+                                         BorderThickness="1" ShadowColor="{StaticResource Yellow}"
+                                       VerticalOptions="Center">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+
+                        </Grid.RowDefinitions>
+                        <forms:CachedImage Aspect="Fill" HeightRequest="120" 
+                                           HorizontalOptions="FillAndExpand"
+                                           Source="{Binding  ProductImage}"
+                                           Grid.Row="0" Margin="15,0,15,0"/>
+                        <Label TextColor="{StaticResource  Yellow}"
+                              MaxLines="2" LineBreakMode="TailTruncation"
+                                  Text="{Binding  ProductName}" Grid.Row="1"
+                                Margin="10" FontSize="16" VerticalOptions="End"
+                               FontFamily="{StaticResource Tajawal-Regular}"
+                       HorizontalOptions="Start"/>
+                        <Grid    Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                        <Label TextColor="Green"
+                               TextDecorations="Strikethrough"
+                  Text="{Binding  ProductUnitPrice,StringFormat='{0:C1}'}"
+                               Grid.Row="0" 
+                       Margin="15,0,15,0" FontSize="14" VerticalOptions="Start"
+                               FontFamily="{StaticResource Tajawal-Regular}"
+                       HorizontalOptions="Start"/>
+                            <Label TextColor="{StaticResource   Yellow}"
+                  Text="{Binding  ProductSalesPrice,StringFormat='{0:C1}'}"
+                               Grid.Row="1"
+                       Margin="15,0,15,0" FontSize="16" VerticalOptions="Start"
+                               FontFamily="{StaticResource Tajawal-Bold}"
+                       HorizontalOptions="Start"/>
+                           
+                        </Grid>
+                        
+                        <StackLayout Orientation="Horizontal" Grid.Row="3">
+                            <Label Margin="10">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="&#xf005; " 
+                                         FontFamily="{StaticResource FontAwsome solid}"
+                                              FontSize="16" 
+                                              TextColor="{StaticResource Yellow}"
+                                               />
+                                            <Span Text="{Binding Rating,StringFormat='{0:N1}'}  "
+                                              TextColor="{StaticResource Yellow}"
+                                              FontSize="18"
+                                              FontFamily="{StaticResource Tajawal-Medium}"/>
+
+
+
+
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+
+                            </Label>
+                            <Label Margin="10">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{Binding AvisCount}" 
+                                              TextColor="{StaticResource Yellow}"
+                                              FontSize="18"
+                                              FontFamily="{StaticResource Tajawal-Medium}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="Avis" 
+                                              TextColor="{StaticResource Yellow}"
+                                              FontSize="18"
+                                              FontFamily="{StaticResource Tajawal-Medium}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                    </Grid>
+                </cardView:SfCardView>
+            </DataTemplate>
+            <views:TemplateSelector x:Key="TemplateNote"
+            SalesCatalogue="{StaticResource NotezSalesTemplate}"
+            NormalCatalogue="{StaticResource  NotezTemplate}"/>
+
+
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+  <ContentView.Content>
+        <listview:SfListView ColumnSpacing="15"     SelectionMode="Single"
+                              ItemSize="170"     SelectionBackgroundColor="Transparent"  
+                               Orientation="Horizontal" IsScrollBarVisible="False"
+                            Margin="10" VerticalOptions="Center" HeightRequest="350"           
+                               ItemTemplate="{StaticResource  TemplateNote}"
+                               ItemsSource="{Binding TopRatedItems}"
+                               SelectedItem="{Binding SelectedProduct}"
+                               TapCommand="{Binding BrowseToDetail}"
+                             SelectionChangedCommand="{Binding SelectionChanged}">
+            <listview:SfListView.LayoutManager>
+                <listview:GridLayout SpanCount="1"/>
+            </listview:SfListView.LayoutManager>
+        </listview:SfListView>
+    </ContentView.Content>
+</ContentView>

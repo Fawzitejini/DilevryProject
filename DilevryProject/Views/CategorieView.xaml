@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             x:Class="DilevryProject.Views.CategorieView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="CategorieTemplate">
+                <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="Center">
+                    <cardView:SfCardView WidthRequest="100" Margin="2"
+                                     HeightRequest="100"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     CornerRadius="50"  
+                                     HasShadow="False"
+                                     BackgroundColor="{StaticResource Dark blue}">
+
+                        <forms:CachedImage Source="{Binding CategoriesImage}"
+                                           Margin="4,4,0,0"
+                                           WidthRequest="50"
+                                           HeightRequest="50"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                                               />
+                    </cardView:SfCardView>
+                    <Label Text="{Binding CategoriesName}" 
+                               VerticalOptions="Center"
+                               Margin="5,0,5,2" MaxLines="1" LineBreakMode="TailTruncation"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="{StaticResource Yellow}"/>
+                </StackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+
+    </ContentView.Resources>
+    <ContentView.Content>
+        <listview:SfListView 
+                        Orientation="Horizontal" 
+                        HeightRequest="150" IsScrollBarVisible="False"
+                                       
+                                      SelectionBackgroundColor="Transparent"
+                                       ItemSize="125"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="Center"
+                        x:Name="listView" 
+                        ItemTemplate="{StaticResource CategorieTemplate}"
+                        ItemsSource="{Binding GetCategorie}"
+                        BackgroundColor="{StaticResource Dark blue}">
+            <listview:SfListView.LayoutManager>
+                <listview:GridLayout SpanCount="1" 
+                                                  />
+            </listview:SfListView.LayoutManager>
+        </listview:SfListView>
+    </ContentView.Content>
+</ContentView>

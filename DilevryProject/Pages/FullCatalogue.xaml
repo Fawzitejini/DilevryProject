@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:template="clr-namespace:DilevryProject.Pages.Template" xmlns:views="clr-namespace:DilevryProject.Views" xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="DilevryProject.Pages.FullCatalogue" BackgroundColor="{StaticResource Dark blue}" Title="Tous les produit">
+  
+    <ContentPage.Resources>
+        <DataTemplate x:Key="NewCatalogue">
+            <template:NewTemplate/>
+        </DataTemplate>
+        <DataTemplate x:Key="SalesCatalogue">
+            <template:SalesTemplate/>
+        </DataTemplate>
+        <DataTemplate x:Key="NormalCatalogue">
+            <template:NormalTemplate/>
+        </DataTemplate>
+        <views:TemplateSelector x:Key="GetCatalogue"
+            NewCatalogue="{StaticResource NewCatalogue}"
+            SalesCatalogue="{StaticResource SalesCatalogue}"
+            NormalCatalogue="{StaticResource NormalCatalogue}"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <inputLayout:SfTextInputLayout Hint="Name" ShowHint="False" ContainerType="Outlined" HeightRequest="50"
+                                           UnfocusedColor="{StaticResource Yellow}"
+                                         
+                >
+                <SearchBar Placeholder="Search" PlaceholderColor="Gray" Text="{Binding Search}"
+                           SearchCommand="{Binding Filters}"
+                           TextColor="{StaticResource Yellow}"/>
+            </inputLayout:SfTextInputLayout>
+            <listview:SfListView ColumnSpacing="15"    SelectedItem="{Binding SelectedProduct}"
+                             TapCommand="{Binding BrowseToDetail}"
+                            AutoFitMode="DynamicHeight"   
+                            SelectionBackgroundColor="Transparent"  
+                            Orientation="Vertical" IsScrollBarVisible="False"
+                            Margin="10" 
+                                          ItemTemplate="{StaticResource  GetCatalogue}"
+                                          ItemsSource="{Binding  ProductCatalogue}
+                
+                "   SelectionMode="Single">
+                <listview:SfListView.LayoutManager>
+                    <listview:GridLayout SpanCount="2"/>
+                </listview:SfListView.LayoutManager>
+            </listview:SfListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

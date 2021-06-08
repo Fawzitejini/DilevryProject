@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="DilevryProject.MainPage" BackgroundColor="{StaticResource Yellow}">
+
+    <StackLayout VerticalOptions="FillAndExpand">
+        <Frame BackgroundColor="{StaticResource  Dark blue}" Padding="24" CornerRadius="0">
+            <Label Text="Dilevry foods test app" HorizontalTextAlignment="Center" TextColor="{StaticResource Yellow}" FontSize="36"/>
+        </Frame>
+
+        <cardView:SfCardView HeightRequest="70" CornerRadius="10" Margin="10" Padding="10" 
+                             BackgroundColor="#a6f1a6">
+        <Label Margin="10" FontSize="16" FontFamily="{StaticResource Tajawal-Black}"
+            Text="Si vous ete deja client de food delivry vieuillez connectez si non click sur countunier"
+               VerticalOptions="Center" HorizontalOptions="Start" TextColor="#28a745"/></cardView:SfCardView>
+
+        <Grid Margin="10" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <forms:CachedImage Source="Right" HeightRequest="100"  WidthRequest="100"
+                           VerticalOptions="CenterAndExpand" Grid.Row="0" Margin="0,50,0,50"/>
+            <inputLayout:SfTextInputLayout Hint="Nom d'utilisateur" ContainerType="Outlined" 
+                                           FocusedColor="{StaticResource Dark blue}"
+                                           Grid.Row="1">
+                <Entry  Placeholder="Entrer votre nom d'utilisateur" TextColor="{StaticResource Dark blue}"/>
+		</inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Hint="mot de passe" ContainerType="Outlined" 
+                                           FocusedColor="{StaticResource Dark blue}"
+                                           
+                                           Grid.Row="2">
+                <Entry  Placeholder="Entrer votre mot de passe" IsPassword="True" TextColor="{StaticResource Dark blue}" />
+            </inputLayout:SfTextInputLayout>
+                 <button:SfButton Text="Connexion" Grid.Row="3"
+                         BackgroundColor="{StaticResource Dark blue}"
+                         
+                         CornerRadius="25,25,0,0" HeightRequest="50"
+                         FontSize="23" HorizontalTextAlignment="Center"
+                         ImageWidth="25" />
+            <button:SfButton Text="Continuer" Grid.Row="4"
+                         BackgroundColor="#4267B2"
+                         
+                         CornerRadius="0,0,25,25" HeightRequest="50"
+                         FontSize="23" HorizontalTextAlignment="Center"
+                         ImageWidth="25" />
+        </Grid>
+        <button:SfButton Text="J'oublier le mot de passe" 
+                         BackgroundColor="Transparent"
+                         TextColor="Blue" 
+                         CornerRadius="25,0,25,0" HeightRequest="50"
+                         FontSize="18" HorizontalTextAlignment="Start" FontFamily="{StaticResource Tajawal-Black}"
+                         ImageWidth="25" />
+ <!--    Command="{Binding BrowseTo}" -->
+
+
+
+   
+    </StackLayout>
+
+</ContentPage>

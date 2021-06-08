@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:badge="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms" xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             x:Class="DilevryProject.Pages.Template.NormalTemplate">
+    <StackLayout>
+        <cardView:SfCardView Margin="10" VerticalOptions="FillAndExpand"
+                                         BackgroundColor="{StaticResource Dark blue}"
+                                         CornerRadius="15"
+                                         BorderWidth="1"
+                                         BorderColor="{StaticResource  Yellow}"
+                                         BorderThickness="1" ShadowColor="{StaticResource Yellow}">
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <forms:CachedImage Aspect="Fill" HeightRequest="120" 
+                                           HorizontalOptions="FillAndExpand"
+                                           Source="{Binding ProductImage}"
+                                           Grid.Row="0" Margin="15,10,15,10"/>
+                    <Label TextColor="{StaticResource  Yellow}"
+                                  Text="{Binding ProductName}" MaxLines="1"
+                       Grid.Row="1"
+                       Margin="15,0,15,0" FontSize="14" 
+                       FontFamily="{StaticResource Tajawal-Bold}"
+                       HorizontalOptions="Start" LineBreakMode="TailTruncation">
+
+                    </Label>
+                    <StackLayout Spacing="1" Orientation="Vertical"  Grid.Row="2">
+                        <Label TextColor="{StaticResource   Yellow}"
+                                  Text="{Binding  ProductUnitPrice,StringFormat='{0:C1}'}"
+                               Margin="15,0,15,15" FontSize="17" VerticalOptions="Start"
+                               FontFamily="{StaticResource Tajawal-Bold}"
+                               HorizontalOptions="Start"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </cardView:SfCardView>
+    </StackLayout>
+</ContentView>

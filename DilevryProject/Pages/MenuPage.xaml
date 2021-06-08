@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:sfAvatarView="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
+xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="DilevryProject.Pages.MenuPage" Title="Menu">
+    <ContentPage.Content>
+        <StackLayout>
+            <cardView:SfCardView HeightRequest="170" 
+                                 BackgroundColor="{StaticResource Yellow}"
+                                 VerticalOptions="StartAndExpand" >
+                <StackLayout VerticalOptions="EndAndExpand" >
+                <StackLayout Orientation="Horizontal">
+                    <sfAvatarView:SfAvatarView AvatarSize="ExtraLarge"
+                                               AvatarShape="Circle" AvatarName="Fouzi tejini"
+                                               VerticalOptions="End" Margin="20,0,0,0"
+                                               BorderColor="Gray"
+                                               HasShadow="True"
+                                               ShadowColor="{StaticResource Dark blue}"
+                                               BorderWidth="1"
+                                               InitialsType="DoubleCharacter"
+                                               BorderThickness="1"
+                                               InitialsColor="{StaticResource Dark blue}"
+                                               />
+                    <Label Text="Fouzi tejini" TextColor="{StaticResource Dark blue}"
+                           VerticalOptions="Center" FontFamily="{StaticResource Tajawal-Black}"
+                           FontSize="20" Margin="0,0,0,0"/>
+                </StackLayout>
+                    <Grid VerticalOptions="EndAndExpand" Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" HeightRequest="1"
+                               BackgroundColor="{StaticResource Dark blue}" Grid.Column="0"/>
+                        <Label HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" HeightRequest="1"
+                               BackgroundColor="{StaticResource Dark blue}" Grid.Column="2"/>
+                        <Label Text="fawzitejini5@gmail.com" Grid.Column="1" VerticalOptions="Center"
+                               FontFamily="{StaticResource Tajawal-Regular}" FontSize="18"/>
+                    </Grid>
+                    <Label Text="Demo application" HorizontalOptions="Center"/>
+                </StackLayout>
+                
+            </cardView:SfCardView>
+            <listview:SfListView  ItemSize="70"
+                ItemsSource="{Binding MainMenus}" 
+                >
+                <listview:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Label Text="{Binding Icons}" WidthRequest="30"
+                                   HorizontalOptions="Start"
+                                   TextColor="{StaticResource Dark blue}"
+                                   FontSize="25" Margin="10,0,0,0"
+                                   VerticalOptions="Center"
+                             FontFamily="{StaticResource FontAwsome solid}"/>
+                            <Label Text="{Binding Captions}" VerticalOptions="Center"
+                                   FontFamily="{StaticResource Tajawal-ExtraBold}"
+                                   TextColor="{StaticResource Dark blue}"
+                                   FontSize="20"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </listview:SfListView.ItemTemplate>
+            </listview:SfListView>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

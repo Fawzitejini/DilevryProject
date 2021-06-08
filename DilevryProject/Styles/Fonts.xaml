@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DilevryProject.Styles.Fonts">
+    <x:String x:Key="FontAwsome solid">Solid</x:String>
+    <x:String x:Key="FontAwsome Brand">Brands</x:String>
+    <x:String x:Key="FontAwsome Reguliar">Reguliar</x:String>
+    <x:String x:Key="Tajawal-Regular">Tajawal-Regular</x:String>
+    <x:String x:Key="Tajawal-Medium">Tajawal-Medium</x:String>
+    <x:String x:Key="Tajawal-Light">Tajawal-Light</x:String>
+    <x:String x:Key="Tajawal-ExtraLight">Tajawal-ExtraLight</x:String>
+    <!--     <x:String x:Key="Tajawal-Light">Tajawal-Light</x:String>-->
+    <x:String x:Key="Tajawal-ExtraBold">Tajawal-ExtraBold</x:String>
+    <x:String x:Key="Tajawal-Bold">Tajawal-Bold</x:String>
+    <x:String x:Key="Tajawal-Black">Tajawal-Black</x:String>
+</ResourceDictionary>

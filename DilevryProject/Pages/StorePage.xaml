@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:DilevryProject.Views" xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+             x:Class="DilevryProject.Pages.StorePage" BackgroundColor="{StaticResource Dark blue}">
+
+    <NavigationPage.TitleView>
+        
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Dilevry foods" TextColor="{StaticResource  Dark blue}"
+                           FontSize="24" FontFamily="{StaticResource  Tajawal-ExtraBold }"
+                           Margin="10,0,0,0" VerticalOptions="Center" 
+                   HorizontalOptions="Start"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding ShowPullToRefresh}"
+                  Command="{Binding PullTorefresh}" 
+                             BackgroundColor="{StaticResource Dark blue}"
+                             RefreshColor="{StaticResource Yellow}">
+        <StackLayout>
+            
+            <busyindicator:SfBusyIndicator x:Name="busyindicator"
+                                           HeightRequest="200"
+                                           IsBusy="{Binding ShowIndiCator}"
+                                           AnimationType="Ball" 
+                                          ViewBoxWidth = "150" 
+                                          
+                                           TextColor="{StaticResource Yellow}"
+                                          ViewBoxHeight="150"
+                                          Title="Rechargement . . ."
+                                          VerticalOptions="CenterAndExpand"/>
+            
+            <ScrollView IsVisible="{Binding ShowHome}" CascadeInputTransparent="True" InputTransparent="False" >
+
+                
+
+                    <StackLayout>
+
+
+
+
+                        <cardView:SfCardView IsVisible="{Binding ShowCategorie}" VerticalOptions="StartAndExpand" HeightRequest="220"
+                             Margin="10" BackgroundColor="{StaticResource Dark blue}"
+                             ShadowColor="{StaticResource Yellow}">
+                            <StackLayout VerticalOptions="FillAndExpand">
+                                <Label Text="Categories" TextColor="{StaticResource Yellow}"
+                           FontSize="20" FontFamily="{StaticResource Tajawal-Black}"
+                           Margin="10"/>
+                                <views:CategorieView/>
+                            </StackLayout>
+
+                        </cardView:SfCardView>
+                        <cardView:SfCardView VerticalOptions="StartAndExpand" 
+                                     HeightRequest="450" 
+                                     IsVisible="{Binding ShowSales}"
+                             Margin="10" BackgroundColor="{StaticResource Dark blue}"
+                             ShadowColor="{StaticResource Yellow}">
+                            <StackLayout VerticalOptions="FillAndExpand">
+                                <Label Text="Promotion" TextColor="{StaticResource Yellow}"
+                           FontSize="20" FontFamily="{StaticResource Tajawal-Black}"
+                           Margin="10"/>
+                                <views:PromoView/>
+                                <button:SfButton Text="Plus de detail" VerticalOptions="EndAndExpand"
+                                         Margin="0,0,0,-3" TextColor="{StaticResource Dark blue}"
+                                             BackgroundColor="{StaticResource Yellow}"
+                                             CornerRadius="0,0,10,10" FontSize="20"
+                                             FontFamily="{StaticResource Tajawal-Bold}"
+                                             Command="{Binding BrowseToCatalogue}"/>
+                            </StackLayout>
+
+                        </cardView:SfCardView>
+                        <cardView:SfCardView IsVisible="{Binding ShowTopRated}" 
+                                         VerticalOptions="StartAndExpand" HeightRequest="450"
+                             Margin="10" BackgroundColor="{StaticResource Dark blue}"
+                             ShadowColor="{StaticResource Yellow}">
+                            <StackLayout VerticalOptions="FillAndExpand">
+                                <Label Text="Top article notez" TextColor="{StaticResource Yellow}"
+                           FontSize="20" FontFamily="{StaticResource Tajawal-Black}"
+                           Margin="10"/>
+                                <views:TopRatedItem/>
+                                <button:SfButton Text="Plus de detail" VerticalOptions="EndAndExpand"
+                                         Margin="0,0,0,-3" TextColor="{StaticResource Dark blue}"
+                                             BackgroundColor="{StaticResource Yellow}"
+                                             CornerRadius="0,0,10,10" FontSize="20"
+                                         Command="{Binding BrowseToCatalogue}"    FontFamily="{StaticResource Tajawal-Bold}"/>
+                            </StackLayout>
+
+                        </cardView:SfCardView>
+                        <cardView:SfCardView IsVisible="{Binding ShowNew}" VerticalOptions="StartAndExpand"
+                                         HeightRequest="400"
+                             Margin="10" BackgroundColor="{StaticResource Dark blue}"
+                             ShadowColor="{StaticResource Yellow}">
+                            <StackLayout VerticalOptions="FillAndExpand">
+                                <Label Text="Nouveau article" TextColor="{StaticResource Yellow}"
+                           FontSize="20" FontFamily="{StaticResource Tajawal-Black}"
+                           Margin="10"/>
+                                <views:NewItems/>
+                                <button:SfButton Text="Plus de detail" VerticalOptions="EndAndExpand"
+                                         Margin="0,0,0,-3" TextColor="{StaticResource Dark blue}"
+                                             BackgroundColor="{StaticResource Yellow}"
+                                             CornerRadius="0,0,10,10" FontSize="20"
+                                           Command="{Binding BrowseToDetail}" 
+                                                 FontFamily="{StaticResource Tajawal-Bold}"/>
+                            </StackLayout>
+
+                        </cardView:SfCardView>
+                    </StackLayout>
+             
+            </ScrollView>
+            
+        </StackLayout>
+
+   </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

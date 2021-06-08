@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:badge="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms" xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms" xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="DilevryProject.Views.PromoView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="Catalogue2">
+
+                <StackLayout>
+                    <cardView:SfCardView Margin="10"  HeightRequest="300"
+                                         BackgroundColor="{StaticResource Dark blue}"
+                                         CornerRadius="15"
+                                         BorderWidth="1"
+                                         BorderColor="{StaticResource  Yellow}"
+                                         BorderThickness="1" ShadowColor="{StaticResource Yellow}">
+                        <StackLayout>
+                            <badge:SfBadgeView HorizontalOptions="Start" BadgeText="{Binding TauxReduce,StringFormat='-{0:P0}'}" 
+                                               Margin="10,10,0,0" HeightRequest="-1" WidthRequest="-1"
+                                               
+                                   >
+                                <badge:SfBadgeView.BadgeSettings>
+                                    <badge:BadgeSetting BadgeType="Secondary" BadgePosition="TopLeft" 
+                                                        TextColor="{StaticResource Yellow}"
+                                                 
+                                            
+                                             BackgroundColor="Green"/>
+                                </badge:SfBadgeView.BadgeSettings>
+
+                            </badge:SfBadgeView>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <forms:CachedImage Aspect="Fill" HeightRequest="120" 
+                                           HorizontalOptions="FillAndExpand"
+                                           Source="{Binding ProductImage}"
+                                           Grid.Row="0" Margin="15,10,15,10"/>
+                                <Label TextColor="{StaticResource  Yellow}"
+                                  Text="{Binding ProductName}" MaxLines="1"
+                       Grid.Row="1"
+                       Margin="15,0,15,0" FontSize="14" 
+                       FontFamily="{StaticResource Tajawal-Bold}"
+                       HorizontalOptions="Start" LineBreakMode="TailTruncation">
+
+                                </Label>
+                                <StackLayout Spacing="1" Orientation="Vertical"  Grid.Row="2">
+                                <Label TextDecorations="Strikethrough" TextColor="Green" FontAttributes="Bold"
+                                  
+                                  Text="{Binding  ProductUnitPrice,StringFormat='{0:C1}'}"
+                       Margin="15,0,15,15" FontSize="14" VerticalOptions="Start"
+                               FontFamily="{StaticResource Tajawal-Bold}"
+                       HorizontalOptions="Start"/>
+                                    
+                                    <Label TextColor="{StaticResource   Yellow}"
+                                  
+                                  Text="{Binding  ProductSalesPrice,StringFormat='{0:C1}'}"
+                               Margin="15,0,15,15" FontSize="17" VerticalOptions="Start"
+                               FontFamily="{StaticResource Tajawal-Bold}"
+                               HorizontalOptions="Start"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </cardView:SfCardView>
+                </StackLayout>
+
+            </DataTemplate>
+
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+
+        <listview:SfListView ColumnSpacing="15"   SelectionMode="Single"
+                              ItemSize="170"      SelectionBackgroundColor="Transparent"  
+                                                 Orientation="Horizontal" IsScrollBarVisible="False"
+                            Margin="10" VerticalOptions="Center" HeightRequest="320"
+                                             
+                                          ItemTemplate="{StaticResource  Catalogue2}"
+                                          ItemsSource="{Binding SalesItems}"
+                             SelectedItem="{Binding SelectedProduct}"
+                             TapCommand="{Binding BrowseToDetail}"
+                             SelectionChangedCommand="{Binding SelectionChanged}">
+            <listview:SfListView.LayoutManager>
+                <listview:GridLayout SpanCount="1"/>
+            </listview:SfListView.LayoutManager>
+        </listview:SfListView>
+    </ContentView.Content>
+
+</ContentView>

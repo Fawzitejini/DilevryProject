@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+xmlns:numericupdown="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
+xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:badge="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms" xmlns:views="clr-namespace:DilevryProject.Views"
+             x:Class="DilevryProject.Pages.DetailPage">
+    
+    <ContentPage.Content>
+        <AbsoluteLayout x:Name="ContainerLayout">
+            <cardView:SfCardView CornerRadius="1" BackgroundColor="{StaticResource Dark blue}"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1"
+                             AbsoluteLayout.LayoutFlags="SizeProportional"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand">
+                <Grid  
+                     >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Text="{Binding DetailProductName}" Grid.Row="1" VerticalOptions="Start" Margin="10,0,0,0"
+                               HorizontalOptions="Start" FontFamily="{StaticResource Tajawal-Regular}"
+                           FontSize="25"   
+                           TextColor="{StaticResource Yellow}"/>
+                    <AbsoluteLayout HeightRequest="300">
+                        <forms:CachedImage Grid.Row="0"
+                Source="{Binding DetailProductImage}" ErrorPlaceholder="Loading" x:Name="pizza"
+                                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                    AbsoluteLayout.LayoutFlags="SizeProportional" />
+
+                        <forms:CachedImage  Source="{Binding DetailProductImage}" ErrorPlaceholder="Loading"
+                                    x:Name="Annimepizza"
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                    AbsoluteLayout.LayoutFlags="SizeProportional"
+                                   />
+                    </AbsoluteLayout>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <inputLayout:SfTextInputLayout Grid.Column="0" Hint="Qte"   EnableHintAnimation="True" 
+                                                  UnfocusedColor="AliceBlue" VerticalOptions="Start" Margin="10,0,0,0"
+                                                   ContainerType="Outlined">
+                            <numericupdown:SfNumericUpDown x:Name="numericupdown" TextAlignment="Center"
+                                                           Value="{Binding DetailProductQte}"
+                                                      FormatString="N0" 
+                                                      SpinButtonAlignment="Both"
+                                                       BorderColor="{StaticResource Yellow}"
+                                                           UpDownButtonColor="{StaticResource Yellow}"
+                                                          TextColor="{StaticResource Yellow}"
+                                                           Maximum="10"
+                                                           Minimum="1"/>
+                        </inputLayout:SfTextInputLayout>
+                        <Label Grid.Column="1" Text="{Binding DetailProductPrice,
+                            StringFormat='{0:C1}'}" VerticalOptions="Center"
+                              
+                               HorizontalOptions="End" 
+                               FontFamily="{StaticResource  Tajawal-ExtraBold}"
+                                FontSize="25" Margin="0,0,10,0"  
+                              TextColor="{StaticResource Yellow}"/>
+
+                    </Grid>
+                    <Grid Margin="10" Grid.Row="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+
+                        </Grid.RowDefinitions>
+                        <Label Text="Description:" TextColor="AliceBlue" FontSize="22" Grid.Row="0"
+                               FontFamily="{StaticResource Tajawal-Bold}"/>
+                        <Label Text="{Binding DetailProductDescription}" Grid.Row="1" 
+                               TextColor="{StaticResource Yellow}" FontSize="20"
+                               FontFamily="{StaticResource  Tajawal-Medium}"/>
+
+                    </Grid>
+                    <Button Grid.Row="4" Text="Ajoutez au panier"  
+                       x:Name="AddtoCart"
+                     BackgroundColor="{StaticResource Yellow}"
+                        HeightRequest="40" VerticalOptions="EndAndExpand"
+                        Clicked="AddtoCart_Clicked"
+                        Command="{Binding AddTocart}"
+                        CornerRadius="20" Margin="10"
+                        HorizontalOptions="FillAndExpand" />
+                </Grid>
+            </cardView:SfCardView>
+            <badge:SfBadgeView  x:Name="CartButton" AbsoluteLayout.LayoutBounds=".98,0.02,80,80"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                BadgeText="{Binding Bage,Mode=TwoWay}" >
+                <badge:SfBadgeView.Content>
+
+
+                    <button:SfButton Text="{Binding CartIcon}" Clicked="CartClick" 
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            HeightRequest="50" 
+                            WidthRequest="50" Command="{Binding CartStateCommand}"
+                    CornerRadius="25" BackgroundColor="{StaticResource Yellow}"
+                    TextColor="{StaticResource Dark blue}" FontFamily="{StaticResource  FontAwsome solid}"
+                            FontSize="18" BorderColor="{StaticResource Yellow}" BorderWidth="1" 
+                    />
+                </badge:SfBadgeView.Content>
+                
+            </badge:SfBadgeView>
+           
+            <StackLayout BackgroundColor="Transparent" x:Name="CartLayout"
+                AbsoluteLayout.LayoutBounds=".98,0.02,0,0"
+                         AbsoluteLayout.LayoutFlags="PositionProportional"
+ >
+                <cardView:SfCardView CornerRadius="25,25,0,0" BackgroundColor="{StaticResource Yellow}"
+                                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <views:CartView Margin="3"/>
+                </cardView:SfCardView>
+                
+                
+                
+                
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
