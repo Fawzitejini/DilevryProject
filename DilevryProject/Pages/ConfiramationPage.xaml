@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:stepProgressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DilevryProject.Pages.ConfiramationPage" Title="Confirme votre commande">
+    <ContentPage.Content>
+        <Grid RowDefinitions="auto,auto">
+            
+        <stepProgressBar:SfStepProgressBar Orientation="Vertical"  Grid.Row="0">
+                <stepProgressBar:StepView Status="{Binding UserInfo}">
+                <stepProgressBar:StepView.PrimaryFormattedText>
+                    <FormattedString>
+                        <Span  ClassId="1" Text="Ordered and Approved" FontSize="13" FontAttributes="Bold" TextColor="Blue"/>
+                        <Span  ClassId="2" Text="&#10;Your Order has been placed." FontAttributes="Italic,Bold" FontSize="12" TextColor="DarkBlue"/>
+                        <Span  ClassId="0" Text="&#10;Sat, 27th Oct&#10;" FontSize="12" FontAttributes="Italic" TextColor="Blue"/>
+                    </FormattedString>
+                </stepProgressBar:StepView.PrimaryFormattedText>
+            </stepProgressBar:StepView>
+                <stepProgressBar:StepView x:Name="Hp" Status="{Binding DilevryInfo}">
+                <stepProgressBar:StepView.PrimaryFormattedText>
+                    <FormattedString>
+                        <Span  ClassId="1" Text="Ordered and Approved" FontSize="13" FontAttributes="Bold" TextColor="Blue"/>
+                        <Span  ClassId="2" Text="&#10;Your Order has been placed." FontAttributes="Italic,Bold" FontSize="12" TextColor="DarkBlue"/>
+                        <Span  ClassId="0" Text="&#10;Sat, 27th Oct&#10;" FontSize="12" FontAttributes="Italic" TextColor="Blue"/>
+                    </FormattedString>
+                </stepProgressBar:StepView.PrimaryFormattedText>
+            </stepProgressBar:StepView>
+                <stepProgressBar:StepView Status="{Binding  End}">
+                <stepProgressBar:StepView.PrimaryFormattedText>
+                    <FormattedString>
+                        <Span  ClassId="1" Text="Ordered and Approved" FontSize="13" FontAttributes="Bold" TextColor="Blue"/>
+                        <Span  ClassId="2" Text="&#10;Your Order has been placed." FontAttributes="Italic,Bold" FontSize="12" TextColor="DarkBlue"/>
+                        <Span  ClassId="3" Text="&#10;Sat, 27th Oct&#10;" FontSize="12" FontAttributes="Italic" TextColor="Blue"/>
+                    </FormattedString>
+                </stepProgressBar:StepView.PrimaryFormattedText>
+            </stepProgressBar:StepView>
+           
+        </stepProgressBar:SfStepProgressBar>
+            <Button Text="Testez" Command="{Binding Test}" Grid.Row="1"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

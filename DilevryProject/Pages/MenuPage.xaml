@@ -12,7 +12,7 @@ xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.
                 <StackLayout VerticalOptions="EndAndExpand" >
                 <StackLayout Orientation="Horizontal">
                     <sfAvatarView:SfAvatarView AvatarSize="ExtraLarge"
-                                               AvatarShape="Circle" AvatarName="Fouzi tejini"
+                                               AvatarShape="Circle" AvatarName="{Binding  UserFullName}"
                                                VerticalOptions="End" Margin="20,0,0,0"
                                                BorderColor="Gray"
                                                HasShadow="True"
@@ -22,7 +22,7 @@ xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.
                                                BorderThickness="1"
                                                InitialsColor="{StaticResource Dark blue}"
                                                />
-                    <Label Text="Fouzi tejini" TextColor="{StaticResource Dark blue}"
+                        <Label Text="{Binding  UserFullName}" TextColor="{StaticResource Dark blue}"
                            VerticalOptions="Center" FontFamily="{StaticResource Tajawal-Black}"
                            FontSize="20" Margin="0,0,0,0"/>
                 </StackLayout>
@@ -38,8 +38,8 @@ xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.
                         <Label HorizontalOptions="FillAndExpand"
                                VerticalOptions="Center" HeightRequest="1"
                                BackgroundColor="{StaticResource Dark blue}" Grid.Column="2"/>
-                        <Label Text="fawzitejini5@gmail.com" Grid.Column="1" VerticalOptions="Center"
-                               FontFamily="{StaticResource Tajawal-Regular}" FontSize="18"/>
+                        <Label Text="{Binding UserEmail}" Grid.Column="1" VerticalOptions="Center"
+                        FontFamily="{StaticResource Tajawal-Regular}" FontSize="18"/>
                     </Grid>
                     <Label Text="Demo application" HorizontalOptions="Center"/>
                 </StackLayout>

@@ -329,6 +329,15 @@ namespace DilevryProject.ViewModel
                   }
               });
         }
+
+
+        public ICommand NavigateToConfirme
+        {
+            get => new Command(async() => 
+            {
+                await ((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new Pages.ConfiramationPage());
+            });
+        }
     }
 
 }

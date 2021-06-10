@@ -52,7 +52,7 @@ xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Button
                                            FocusedColor="{StaticResource Dark blue}"
                                            
                                            Grid.Row="2">
-                    <Entry Text="{Binding UserPwd}"   Placeholder="Entrer votre mot de passe" IsPassword="True" TextColor="{StaticResource Dark blue}" />
+                    <Entry Text="{Binding UserPwd}"  Placeholder="Entrer votre mot de passe" IsPassword="True" TextColor="{StaticResource Dark blue}" />
             </inputLayout:SfTextInputLayout>
                  <button:SfButton Text="Connexion" Grid.Row="3"
                          BackgroundColor="{StaticResource Dark blue}"

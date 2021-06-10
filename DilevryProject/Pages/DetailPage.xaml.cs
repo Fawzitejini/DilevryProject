@@ -11,7 +11,7 @@ namespace DilevryProject.Pages
 {
     public enum State
     {
-        Expand,Collaps
+       Collaps,Expand
     }
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailPage : ContentPage
@@ -57,14 +57,14 @@ namespace DilevryProject.Pages
         }
         private async void ExpandLayout()
         {
-           
+             
             var point = new Point(CartButton.Bounds.X + 30, CartButton.Y + 30);
             var CartButtonLocation = point;
             var ToCartCamp = new Rectangle(CartButtonLocation, new Size(0, 0));
-           
-            if (States == State.Collaps)
+             
+            if (AppClass.GlobalVariable.States == AppClass.State.Collaps)
             {
-          await CartLayout.LayoutTo(ToCartCamp);
+            await CartLayout.LayoutTo(ToCartCamp);
             CartLayout.IsVisible = true;
              var ContY = ContainerLayout.Bounds.Y + 100;
             var ContX = ContainerLayout.Bounds.X;
@@ -73,22 +73,52 @@ namespace DilevryProject.Pages
             var Container = new Rectangle(ContLocation,ContSize);
          
             await CartLayout.LayoutTo(Container,1000, Easing.SinInOut);
-            States = State.Expand;
+            AppClass.GlobalVariable.States = AppClass.State.Expand;
             }
             else
             {
                 await CartLayout.LayoutTo(ToCartCamp,1000,Easing.SinInOut);
-                States = State.Collaps;
+               
                 CartLayout.IsVisible = false;
-                 
+                AppClass.GlobalVariable.States = AppClass.State.Collaps;
 
             }
          
         }
-        State States { get; set; }= State.Collaps;
+        State States { get; set; }
         private void CartClick(object sender, EventArgs e)
         {
             ExpandLayout();
+        }
+        protected override void OnAppearing()
+        {
+          
+            base.OnAppearing();
+            var point = new Point(CartButton.Bounds.X + 30, CartButton.Y + 30);
+            var CartButtonLocation = point;
+            var ToCartCamp = new Rectangle(CartButtonLocation, new Size(0, 0));
+            if (AppClass.GlobalVariable.States == AppClass.State.Expand)
+            {
+                
+                 CartLayout.LayoutTo(ToCartCamp);
+                 CartLayout.IsVisible = true;
+                 var ContY = ContainerLayout.Bounds.Y + 100;
+                 var ContX = ContainerLayout.Bounds.X;
+                 var ContLocation = new Point(ContX, ContY);
+                 var ContSize = new Size(ContainerLayout.Width, ContainerLayout.Height - 100);
+                 var Container = new Rectangle(ContLocation, ContSize);
+                 CartLayout.LayoutTo(Container);
+             
+            }
+            else
+            {
+                  CartLayout.LayoutTo(ToCartCamp);
+                  CartLayout.IsVisible = false;
+            }
+
+
+
+
         }
     }
 }

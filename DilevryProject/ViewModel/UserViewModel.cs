@@ -56,10 +56,7 @@ namespace DilevryProject.ViewModel
                  {
 
                      AppClass.GlobalVariable.CurrentUser = usr.FirstOrDefault();
-                   
-                   
-                   
-                   
+                     App.Current.MainPage = new Pages.MainMasterPage();                  
                      
                  }
                    

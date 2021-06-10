@@ -4,9 +4,13 @@ using System.Text;
 
 namespace DilevryProject.AppClass
 {
+    public enum State
+    {
+        Collaps, Expand
+    }
     class GlobalVariable
     {
-    
-       public static Model.UserModel CurrentUser { get ; set; }
+        public static State States { get; set; }
+        public static Model.UserModel CurrentUser { get ; set; }
     }
 }

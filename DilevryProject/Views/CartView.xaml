@@ -95,6 +95,7 @@ xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.
             </Grid>
             <Button  Text="Contunier"  Grid.Row="2"
                        TextColor="{StaticResource Yellow}"
+                     Command="{Binding NavigateToConfirme}"
                         BackgroundColor="{StaticResource Dark blue}"
                         HeightRequest="40" VerticalOptions="EndAndExpand"
                         CornerRadius="20" Margin="10" 
