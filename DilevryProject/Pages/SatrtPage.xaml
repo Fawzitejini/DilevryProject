@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DilevryProject.Pages.SatrtPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource Yellow}">
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Center" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="&#xf3dc;"   FontSize="100" TextColor="{StaticResource Dark blue}" FontFamily="{StaticResource FontAwsome Brand}"/>
+                            <Span Text="&#10; Phonex Software&#8482;" FontSize="25" 
+                                  FontFamily="{StaticResource Tajawal-Medium}" 
+                                  TextColor="{StaticResource Dark blue}"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="By fouzi tejini" VerticalOptions="End" HorizontalOptions="Center"
+                   Margin="0,0,0,10" FontSize="18" FontFamily="{StaticResource Tajawal-Bold}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -38,14 +38,12 @@ namespace DilevryProject.ViewModel
                      End = StepStatus.NotStarted;
                  }else if(DilevryInfo== StepStatus.InProgress)
                  {
-                     UserInfo = StepStatus.Completed;
-                     DilevryInfo = StepStatus.Completed;
                      End = StepStatus.InProgress;
-                 }else if (End == StepStatus.Completed)
-                 {
-                     UserInfo = StepStatus.InProgress;
-                     DilevryInfo = StepStatus.NotStarted;
-                     End = StepStatus.NotStarted;
+                     DilevryInfo = StepStatus.Completed;
+                    
+                 }else if (End == StepStatus.InProgress)
+                 {  
+                     End = StepStatus.Completed;
                  }
              });
         }

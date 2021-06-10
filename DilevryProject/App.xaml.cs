@@ -12,7 +12,7 @@ namespace DilevryProject
             InitializeComponent();
             CultureInfo.CurrentCulture = new CultureInfo("fr-MA");
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTAxNUAzMTM5MmUzMTJlMzBJU0VTZG03a3BtcW9EVmVxaHk4OHZrUlNhdGVLdTdBam1PZENSZHNDVXJFPQ==");
-            MainPage = new MainPage();
+            MainPage = new Pages.SatrtPage();
         }
 
         protected override void OnStart()

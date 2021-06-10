@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:badge="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms"
+xmlns:rotator="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
+xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=mscorlib"
 xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
 xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
 xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:DilevryProject.Views" xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:DilevryProject.Views" xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="DilevryProject.Pages.StorePage" BackgroundColor="{StaticResource Dark blue}">
 
     <NavigationPage.TitleView>
-        
+
         <StackLayout Orientation="Horizontal">
             <Label Text="Dilevry foods" TextColor="{StaticResource  Dark blue}"
                            FontSize="24" FontFamily="{StaticResource  Tajawal-ExtraBold }"
@@ -20,9 +23,9 @@ xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.
                   Command="{Binding PullTorefresh}" 
                              BackgroundColor="{StaticResource Dark blue}"
                              RefreshColor="{StaticResource Yellow}">
-        <StackLayout>
-            
-            <busyindicator:SfBusyIndicator x:Name="busyindicator"
+            <StackLayout>
+
+                <busyindicator:SfBusyIndicator x:Name="busyindicator"
                                            HeightRequest="200"
                                            IsBusy="{Binding ShowIndiCator}"
                                            AnimationType="Ball" 
@@ -32,15 +35,56 @@ xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.
                                           ViewBoxHeight="150"
                                           Title="Rechargement . . ."
                                           VerticalOptions="CenterAndExpand"/>
-            
-            <ScrollView IsVisible="{Binding ShowHome}" CascadeInputTransparent="True" InputTransparent="False" >
 
-                
+                <ScrollView IsVisible="{Binding ShowHome}" CascadeInputTransparent="True" InputTransparent="False" >
+
+
 
                     <StackLayout>
 
+                       
+                        
+                        <rotator:SfRotator x:Name="rotator" 
+                        NavigationDelay="10000"  EnableAutoPlay="True" HeightRequest="260"
+                        ItemsSource="{Binding SalesItems}" 
+                        SelectedIndex="2"
+                        NavigationDirection="Horizontal"
+                        NavigationStripMode="Dots" 
+                        BackgroundColor="{StaticResource  Dark blue}">
+                            <rotator:SfRotator.ItemTemplate>
+                                <DataTemplate>
 
+                                    <StackLayout VerticalOptions="FillAndExpand"> <badge:SfBadgeView HorizontalOptions="Center" Grid.Row="0"
+                                                       BadgeText="{Binding TauxReduce,StringFormat='Promotion -{0:P0}'}" 
+                                               Margin="10,10,0,0" HeightRequest="-1" WidthRequest="-1"
+                                               
+                                   >
+                                            <badge:SfBadgeView.BadgeSettings>
+                                                <badge:BadgeSetting BadgeType="Secondary" BadgePosition="TopLeft" 
+                                                        TextColor="{StaticResource Yellow}"
+                  
+                                            
+                                             BackgroundColor="Green"/>
+</badge:SfBadgeView.BadgeSettings> </badge:SfBadgeView>
+                                        <Grid RowDefinitions="*,auto">
+                                       
+                                                <forms:CachedImage  Source="{Binding ProductImage}" HeightRequest="200"
+                                                                    WidthRequest="250"/>
+                                   
+                                    <Label TextColor="{StaticResource   Dark blue}"
+                                  Text="{Binding ProductName}" MaxLines="1"
+                       Grid.Row="0"
+                        FontSize="25" 
+                       FontFamily="{StaticResource Tajawal-Bold}"
+                      VerticalOptions="End" LineBreakMode="TailTruncation" Opacity="0.3"
+                                               BackgroundColor="Beige" HorizontalTextAlignment="Center"/>
+                                    </Grid>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </rotator:SfRotator.ItemTemplate>
+                        </rotator:SfRotator>
 
+                        
 
                         <cardView:SfCardView IsVisible="{Binding ShowCategorie}" VerticalOptions="StartAndExpand" HeightRequest="220"
                              Margin="10" BackgroundColor="{StaticResource Dark blue}"
@@ -108,11 +152,11 @@ xmlns:cardView="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.
 
                         </cardView:SfCardView>
                     </StackLayout>
-             
-            </ScrollView>
-            
-        </StackLayout>
 
-   </RefreshView>
+                </ScrollView>
+
+            </StackLayout>
+
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

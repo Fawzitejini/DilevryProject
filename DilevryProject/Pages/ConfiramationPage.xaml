@@ -4,9 +4,9 @@ xmlns:stepProgressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Sync
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DilevryProject.Pages.ConfiramationPage" Title="Confirme votre commande">
     <ContentPage.Content>
-        <Grid RowDefinitions="auto,auto">
+        <Grid RowDefinitions="auto,auto,auto">
             
-        <stepProgressBar:SfStepProgressBar Orientation="Vertical"  Grid.Row="0">
+        <stepProgressBar:SfStepProgressBar Orientation="Horizontal"  Grid.Row="0">
                 <stepProgressBar:StepView Status="{Binding UserInfo}">
                 <stepProgressBar:StepView.PrimaryFormattedText>
                     <FormattedString>
@@ -36,7 +36,8 @@ xmlns:stepProgressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Sync
             </stepProgressBar:StepView>
            
         </stepProgressBar:SfStepProgressBar>
-            <Button Text="Testez" Command="{Binding Test}" Grid.Row="1"/>
+            
+            <Button Text="Testez" Command="{Binding Test}" Grid.Row="2"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
